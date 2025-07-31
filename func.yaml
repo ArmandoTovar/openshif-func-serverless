@@ -11,7 +11,9 @@ build:
   git:
     url: https://github.com/ArmandoTovar/openshif-func-serverless
     revision: main
-  builder: pack
+  buildpacks: []
+  builder: ""
+  buildEnvs: []
 run:
   envs:
   - name: MESSAGE
