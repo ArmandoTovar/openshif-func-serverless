@@ -1,0 +1,22 @@
+# $schema: https://raw.githubusercontent.com/knative/func/d04ff0a3/schema/func_yaml-schema.json
+# yaml-language-server: $schema=https://raw.githubusercontent.com/knative/func/d04ff0a3/schema/func_yaml-schema.json
+specVersion: 0.36.0
+name: handle-gps
+runtime: node
+registry: image-registry.openshift-image-registry.svc:5000/knative-functions-demo
+namespace: knative-functions-demo
+created: 2025-07-31T18:36:38.8248974-04:00
+invoke: cloudevent
+build:
+  git:
+    url: https://github.com/ArmandoTovar/openshif-func-serverless
+    revision: main
+  builder: pack
+run:
+  envs:
+  - name: MESSAGE
+    value: hi from local
+  - value: '{{ configMap:fnconfig }}'
+deploy:
+  namespace: knative-functions-demo
+  image: image-registry.openshift-image-registry.svc:5000/knative-functions-demo/handle-gps@sha256:3df8f7dd5ec84b0bdc32e8a1012c05c93a8f298ac072e5a36ef25ed72a37f78e
