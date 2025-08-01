@@ -9,11 +9,8 @@ created: 2025-07-31T18:36:38.8248974-04:00
 invoke: cloudevent
 build:
   git:
-    url: https://github.com/ArmandoTovar/openshif-func-serverless
+    url: https://github.com/ArmandoTovar/openshif-func-serverless.git
     revision: main
-  buildpacks: []
-  builder: ""
-  buildEnvs: []
 run:
   envs:
   - name: MESSAGE
